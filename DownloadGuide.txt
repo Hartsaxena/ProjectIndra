@@ -1,0 +1,13 @@
+This is the guide to download the Project.
+
+1. Download the files through https://github.com/Hartsaxena/Project-Indra.git
+
+2. Move the "ProjectIndra" folder to your "Documents" folder
+
+3. Move the "Indra.py" file to your "Documents" folder as well
+
+4. Run "Indra.py"
+
+5. Done!
+
+(Indra.py is the main file that you should execute if you want to play the simulation)
