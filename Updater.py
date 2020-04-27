@@ -25,3 +25,4 @@ if yesno.lower() == 'yes' or yesno.lower() == 'y' or yesno.lower() == 'yep':
     r = requests.get(url, allow_redirects=True)
     open(Path.home()/"Documents/Indra.py", 'wb').write(r.content)
     print("Done!")
+# if yesno.lower()=='no' or yesno.lower()=='not really' or yesno.lower()=='nope':
