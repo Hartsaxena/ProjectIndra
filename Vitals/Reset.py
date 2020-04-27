@@ -1,5 +1,5 @@
-# This Script sets Variable certain values at the very Beginning of the Game
-
+# This Script sets certain variable values at the very Beginning of the Game
+# This doesn't set all variables.
 
 os.makedirs(Path.home()/"Documents/ProjectIndra/Saves/", exist_ok=True)
 os.makedirs(Path.home()/"Documents/ProjectIndra/Logs/", exist_ok=True)
@@ -15,6 +15,7 @@ topicdone = False  # Detects if the Topic is finished
 topicopinion = True  # True = Good Topic and False = Bad Topic
 loveBonus = 0  # Bonus given when Indra is told I love you
 negloveBonus = 0  # Bonus given when Indra rejects user
+rep = 0 # Used for NoneType Detects
 interest = 75  # The interest. This is a key variable
 namereject = False  # Tells whether or not the game will Restart if you get certain NameEggs
 devbypass = False  # If it's True, it gives the player permissions they normally wouldn't have. # This is for Devoloping and testing code

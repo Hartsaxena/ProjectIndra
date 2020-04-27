@@ -6,6 +6,7 @@ import time
 import random
 import sys
 import git
+import requests
 from pathlib import Path
 from time import ctime
 if sys.version_info < (3, 0):

@@ -157,6 +157,11 @@ def RecordedTerminate(message):
     a.close()
     sys.exit(message)
 
+def IndraTerminate(message):
+    a = open(intlog, "a")
+    a.write("Indra Terminated program\n")
+    a.close()
+    sys.exit(message)
 
 def AbruptRestart():
     os.execl(sys.executable, sys.executable, * sys.argv)
