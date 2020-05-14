@@ -1,6 +1,7 @@
 # This sets the List of Mainline Topics that is Recalled when suggesting a Random Topic
 # This Reduces the clutter on the Main Program
-topicsList = ["Robots", "Python", "Indra", "Anime and Manga", "Monika"]
+topicsList = ["Robots", "Python", "Indra",
+              "Anime and Manga", "Monika", "Video Games"]
 robotFactsList = ["Did you know that the first computer was the Z1 computer created by the German Konrad Zuse in the year 1936?",
                   "did you know that the word 'typewriter' is the longest possible word you can type with only one row of the US Keyboard?",
                   'The term "Robot" comes from the Czech word "Robota", meaning "Drudgery" or "Forced Labor".',
@@ -20,7 +21,6 @@ indraFactsList = ["Did you know that this program was created with a programming
                   "The creator of this project, James Sun, originally made Project Indra because he wanted someone to talk to when he was lonely.",
                   'Every single script in Project Indra was written with a text editor called Atom! You should try it sometime.',
                   "In the middle of creating this project, the creator wanted to try and translate every script to the Programming Language Ren'Py, but gave up after a couple days.",
-                  'While making this Project, the creator always had the game "Monika After Story" running in the background. Between you and me, I think he is kind of a weeb.'
                   ]
 animeFactsList = ["Did you know that the longest ever running anime is Sazae-san, with over 6000 episodes!",
                   "The Anime Code Geass is sponsered by the Japanese branch of Pizza Hut. If you have watched the anime, you might notice that Pizza Hut is ordered many times.",

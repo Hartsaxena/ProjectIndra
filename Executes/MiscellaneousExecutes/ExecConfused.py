@@ -1,5 +1,5 @@
 # This is executed when a subject/topic that isn't recognized is chosen
-
+ignoreinteract = True
 
 print("I've never heard of that one...")
 sleep(2)

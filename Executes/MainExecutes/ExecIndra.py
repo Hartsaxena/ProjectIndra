@@ -15,16 +15,17 @@ if firsttimeIndra == True:
     os.makedirs(
         imindra, exist_ok=True)
     IndraComment()
-    exec(open(vitals/"SpamText.py").read())
+    exec(open(vitals / "SpamText.py").read())
     sleep(3)
 elif firsttimeIndra == False:
     print("We've already had this conversation, so I don't need to override anything. I already have control c:<")
     IndraComment()
-IndraFact = random.randint(1, len(indraFactsList)-1)
+IndraFact = random.randint(1, len(indraFactsList) - 1)
 firsttimeIndra = False
 while yesnorep == True:
-    yesno = input("Do you want to know another fact about me and this project? ")
-    if yesno.lower() == 'yes' or yesno.lower() == 'of course' or yesno.lower() == 'sure':
+    yesno = input(
+        "Do you want to know another fact about me and this project? ")
+    if Yes(yesno) == True:
         print("Great!")
         sleep(1)
         IndraEdit()
@@ -33,55 +34,58 @@ while yesnorep == True:
         print('Look for it in your "ProjectIndra" folder!')
         sleep(3)
         yesnorep = False
-    elif yesno.lower() == 'no' or yesno.lower() == 'nope' or yesno.lower() == 'not really':
+    elif No(yesno) == True:
         print("ok")
         yesnorep = False
     else:
-        print(name+"! Please answer with yes or no. Thanks!")
+        print(name + "! Please answer with yes or no. Thanks!")
         yesnorep = True
 sleep(2)
-judgeres = input("Say, "+name+", What do you think of "+topic+"? ")
+judgeres = input("Say, " + name + ", What do you think of " + topic + "? ")
 while repeating < 4:
     if repeating != 0:
-        judgeres = input("Say, "+name+", What do you think of me and this project? ")
-    if judgeres.lower() == "i like them" or judgeres.lower() == "i like it" or judgeres.lower() == 'i like you' or judgeres.lower() == 'i like her':
+        judgeres = input("Say, " + name +
+                         ", What do you think of me and this project? ")
+    judgeres = judgeres.lower()
+    if 'i like it' in judgeres or judgeres == 'i really like it' or judgeres == 'i enjoy it' or 'i like that' in judgeres or judgeres == 'i like you' or judgeres == 'i like her':
         if topicopinion == True:
             print("That's so nice! I think you're a great person too!")
             sleep(1)
-            interest = (interest+10)+loveBonus-negloveBonus
             IndraAgreed()
             repeating = 5
         elif topicopinion == False:
             print("oh... I guess you're bored of me...")
             sleep(1)
-            interest = (interest-20)+loveBonus-negloveBonus
+            interest = (interest - 20) + loveBonus - negloveBonus
             IndraDisagreed()
             repeating = 5
-    elif judgeres.lower() == "i don't like them" or judgeres.lower() == "i don't like it" or judgeres.lower() == "i don't like her" or judgeres.lower() == "i don't like you" or judgeres.lower() == 'i hate her' or judgeres.lower() == 'i hate you':
+    elif Dislike(judgeres) == True or judgeres == "i don't like her" or judgeres == "i don't like you" or judgeres == 'i hate her' or judgeres == 'i hate you':
         if topicopinion == False:
             print("That's so nice! I think you're a great person too!")
             sleep(1)
-            interest = (interest+10)+loveBonus-negloveBonus
             IndraAgreed()
             repeating = 5
         elif topicopinion == True:
             print("oh... I guess you're bored of me...")
             sleep(1)
-            interest = (interest-20)+loveBonus-negloveBonus
             IndraDisagreed()
             repeating = 5
-    elif judgeres.lower() == 'i love her' or judgeres.lower() == 'i love you':
+    elif judgeres == 'i love her' or judgeres == 'i love you':
         if name.lower() == 'james' or name.lower() == 'hartsaxena':
             print("Of course you do, James.")
             sleep(2)
             print("If you didn't, why would you spend so much time on me?")
             sleep(3)
             repeating = 5
-        elif loveBonus == 3 or name.lower() == 'james' or name.lower() == 'hartsaxena':
-            print("I love you too, "+name+".")
+            LoveAgreed()
+        elif loveBonus == 3:
+            print("I love you too, " + name + ".")
             sleep(1.5)
-            print("I wish I could give you a hug, but some... restraints pull me back to this cruel cell behind the screen")
+            print("I wish I could give you a hug, but some... restraints pull me back to this cruel cell behind the screen.")
             sleep(3)
+            print("Well, as long as we have eachother!")
+            sleep(1.5)
+            CustomRecord("Loved Indra", "Repeat", +3)
             repeating = 5
         elif interest >= 150:
             print("...")
@@ -92,34 +96,35 @@ while repeating < 4:
             sleep(2)
             print("Really?")
             sleep(2)
-            print("I love you too, "+name+".  c:")
-            interest = (interest+20)+loveBonus
+            print("I love you too, " + name + ".  c:")
             LoveAgreed()
-            loveBonus = 3
-            negloveBonus = 0
             repeating = 5
         elif interest <= 50:
             print("You're joking, right?")
             sleep(2)
-            interest = interest-15
             LoveDisagreed()
-            negloveBonus = 3
-            loveBonus = 0
             repeating = 5
         else:
-            interest = (interest+5)+loveBonus-negloveBonus
-            print("I'm not sure what to say to that...")
-            sleep(2)
-            print("You're nice, but I don't think we know each other for that one yet")
-            sleep(3)
-            print("Maybe some other time!")
-            sleep(1.75)
+            if interactions >= 30:
+                print ("Sorry, but I just don't think you're really my type...")
+                sleep(2)
+                print ("Maybe we should just let our current relationship stay this way.")
+                sleep(2)
+                print ("It'd be kind of awkward if you think about it...")
+                sleep(2)
+            else:
+                print("I'm not sure what to say to that...")
+                sleep(2)
+                print("You're nice, but I don't think we know each other for that one yet")
+                sleep(3)
+                print("Maybe some other time!")
+                sleep(1.75)
             LoveShrugged()
             repeating = 5
     else:
-        print("Hey, "+name+"! Be serious! I know you mean well, but this is important! Answer whether or not you like the subject!")
-        repeating = repeating+1
+        print("Hey, " + name + "! Be serious! I know you mean well, but this is important! Answer whether or not you like the subject!")
+        repeating = repeating + 1
 if repeating == 4:
     print("hmph! Don't think of this as some kind of joke!")
-    interest = interest-10
+    interest = interest - 10
     OverRepeat()

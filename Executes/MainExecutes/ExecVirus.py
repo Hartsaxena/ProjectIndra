@@ -12,18 +12,21 @@ sleep(3)
 while topicdone == False:
     alittlesomething = input(
         "Well? What do you say I add something to the Game Folder to spice things up a bit? ")
-    if alittlesomething.lower() == 'yes' or alittlesomething.lower() == 'sure':
+    if Yes(alittlesomething) == True:
         print("Here we go!")
-        exec(open(indrafolder/"Misc/FakeVirus.py").read())
+        exec(open(indrafolder / "Misc/FakeVirus.py").read())
         topicdone = True
-    elif alittlesomething.lower() == 'no' or alittlesomething.lower() == 'nope' or alittlesomething.lower() == 'not really':
+    elif No(alittlesomething) == True:
         if interest <= 50:
             print("Party Pooper...")
         else:
             print("Yeah... I guess we don't want to take any chances...")
+            sleep(2.25)
+            print("Despite being a computer program, I'm not really an expert on code...")
+            sleep(0.75)  # This will add to the 1.75 second sleep
         sleep(1.75)
         topicdone = True
     else:
-        print("Sorry, "+name+", but I'm not sure I understand what you just said")
+        print("Sorry, " + name + ", but I'm not sure I understand what you just said")
         sleep(2)
         topicdone = False

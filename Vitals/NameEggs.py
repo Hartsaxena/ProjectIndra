@@ -49,13 +49,13 @@ elif name.lower() == 'baldi':
     print("Now all you have to do is...")
     namereject = True
 else:
-    print("Hello, "+name+"! Pleasure to meet you!")
+    print("Hello, " + name + "! Pleasure to meet you!")
     sleep(2)
     # if name.lower()==''
 
     # Executes if namereject is True and records it in the logs
 if namereject == True:
     a = open(intlog, "a+")
-    a.write('Name Rejected: '+name+"   Time: "+ctime())
+    a.write('Name Rejected: ' + name + "   Time: " + currentdate)
     a.close()
     sys.exit()

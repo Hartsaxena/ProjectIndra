@@ -4,7 +4,7 @@ class Window(Frame):
         Frame.__init__(self, master)
         self.master = master
         self.pack(fill=BOTH, expand=1)
-        load = Image.open(indrafolder/"Images/chili.png")
+        load = Image.open(indrafolder / "Images/chili.png")
         render = ImageTk.PhotoImage(load)
         img = Label(self, image=render)
         img.image = render

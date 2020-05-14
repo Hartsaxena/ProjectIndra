@@ -1,0 +1,18 @@
+You might be going through the game folder and asking yourself "What is Misc?"
+
+Well you're in luck! Because this file will explain what Misc files are!
+
+If you didn't know, "Misc" stands for Miscellaneous which is pretty much another word for "Random"
+These are the files that I couldn't decide where to place, so this is where they ended up.
+Most of these files are just helper files (Files that assist Main files) that make make the code less crowded and easier for me to understand.
+
+If you want to add more things to the game, I recommend putting your modded files in A folder called "custom". I've already made a Path variable for this folder:
+
+custom = Path(Path.home()/"Documents/ProjectIndra/Misc/custom")
+
+Good luck modding!
+
+If you're not here to mod (which you probably aren't), then Good luck... Playing?
+
+With love,
+        Indra

@@ -11,21 +11,22 @@ if loveBonus == 3:
     print("Although the Virus can't physically effect me, I'm still worried about you.")
     sleep(2.5)
     while topicdone == False:
-        Virus = input("Are you staying home right now, "+name+"? ")
-        if Virus.lower() == 'yes' or Virus.lower() == 'yep':
+        Virus = input("Are you staying home right now, " + name + "? ")
+        if Yes(Virus.lower()) == True:
             print("Oh that's a relief!")
             sleep(1)
             print("I wouldn't be able to stand it if you said that you weren't taking care of yourself to the best of your ability.")
             sleep(3)
             topicdone = True
-        elif Virus.lower() == 'no' or Virus.lower() == 'nope' or Virus.lower() == 'not really':
-            print(name+"!")
+        elif No(Virus.lower()) == True:
+            print(name + "!")
             sleep(1)
             print("Why would you endanger yourself like that?!")
             sleep(2)
             print("...")
             sleep(2)
-            print("Sorry, I just really care about you and would hate for you to get some terrible disease.")
+            print(
+                "Sorry, I just really care about you and would hate for you to get some terrible disease.")
             sleep(2)
             print("No matter what your age is, the disease can still be fatal.")
             sleep(2)
@@ -56,7 +57,7 @@ else:
     else:
         print("I read something about a fast-spreading disease called COVID-19!")
         sleep(3)
-        print("I really hope everybody at your home is ok, "+name+".")
+        print("I really hope everybody at your home is ok, " + name + ".")
         sleep(2.75)
         print("I would hate it if you or a family member who lives with you caught the disease.")
         sleep(3)
@@ -67,17 +68,18 @@ else:
         print("Don't go outside too much, unless absolutely necessary.")
         sleep(3)
         while topicdone == False:
-            yesno = input("Are you staying home, "+name+"? ")
-            if yesno.lower() == 'yes' or yesno.lower() == 'yep':
+            yesno = input("Are you staying home, " + name + "? ")
+            if Yes(yesno.lower()) == True:
                 print("Good!")
                 sleep(1)
-                print("I'm glad you're taking care of yourself during this time of crisis.")
+                print(
+                    "I'm glad you're taking care of yourself during this time of crisis.")
                 sleep(3)
                 print("Take care of yourself!")
                 topicdone = True
                 sleep(2)
-            elif yesno.lower() == 'no' or yesno.lower() == 'not really' or yesno.lower() == 'nope':
-                print(name+"...")
+            elif No(yesno.lower()) == True:
+                print(name + "...")
                 sleep(2)
                 print("You really should take better care of yourself.")
                 sleep(2)
@@ -89,7 +91,8 @@ else:
                 topicdone = True
                 sleep(2)
             else:
-                print("Sorry, "+name+", but I don't know a lot of different ways to say yes or no...")
+                print("Sorry, " + name +
+                      ", but I don't know a lot of different ways to say yes or no...")
                 sleep(3)
                 print("I hope you understand...")
                 topicdone = False

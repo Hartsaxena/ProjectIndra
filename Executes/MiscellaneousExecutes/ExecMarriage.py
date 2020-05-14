@@ -2,7 +2,7 @@
 
 
 if loveBonus == 3:
-    print(name+"...")
+    print(name + "...")
     sleep(1.5)
     print("I love you too, but I don't think marriage would work out...")
     sleep(2)
@@ -15,7 +15,7 @@ if loveBonus == 3:
     print("I appreciate the Gesture though.")
     sleep(1.75)
     print("I love you!")
-    interest = interest+2
+    interest = interest + 2
     CalmRejection()
 else:
     if interest >= 100:
@@ -29,7 +29,7 @@ else:
         MiddleRejection()
     elif interest < 100 and interest >= 75:
         print("Sorry, but I don't think we know each other enough for that")
-        interest = interest-1
+        interest = interest - 1
         MiddleRejection()
     else:
         print("Really?")

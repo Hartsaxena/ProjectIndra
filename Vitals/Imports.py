@@ -1,17 +1,83 @@
-import os
-import os.path
-import PIL
-import shutil
-import time
-import random
+# This ignores deprecation warnings when importing modules
+import warnings
+warnings.filterwarnings("ignore")
+
+# This handles game imports
+
+import subprocess
 import sys
-import git
-import requests
-from pathlib import Path
-from time import ctime
-if sys.version_info < (3, 0):
-    import Tkinter as tk
-else:
-    import tkinter as tk
-    from tkinter import *
-    from PIL import ImageTk,Image
+import time
+from time import sleep
+
+try:
+    from datetime import *
+    from pathlib import Path
+    from time import ctime
+    import calendar
+    import git
+    import json
+    import os
+    import PIL
+    import platform
+    import pyautogui as pag
+    import random
+    import requests
+    import shutil
+    import time
+    if sys.version_info < (3, 0):
+        import Tkinter as tk
+    else:
+        import tkinter as tk
+        from tkinter import *
+        from PIL import ImageTk,Image
+
+# Installs all modules in case the user hasn't downloaded them already (which is very likely)
+except ModuleNotFoundError:
+    print ("Sorry, but it seems that there was a problem importing required modules.")
+    sleep(1.5)
+    print ("I can reinstall the required modules if you like!")
+    sleep(2)
+    print("Would you like for me to help you install the packages?")
+    yesno = input(" [Y / N] ")
+    if yesno.lower() == 'y':
+
+        install('pyobjc')
+        install('pyobjc-core')
+        install("requests")
+        install('pillow')
+        install('pyautogui')
+
+        for i in range(1, 3):
+            print ('\n')
+        print ("Thank you for downloading the modules.")
+        sleep(2)
+        print ("The program will now attempt to import the modules again and continue.")
+
+        from datetime import *
+        from pathlib import Path
+        from time import ctime
+        import calendar
+        import git
+        import json
+        import os
+        import PIL
+        import platform
+        import pyautogui as pag
+        import random
+        import requests
+        import shutil
+        import time
+        if sys.version_info < (3, 0):
+            import Tkinter as tk
+        else:
+            import tkinter as tk
+            from tkinter import *
+            from PIL import ImageTk,Image
+
+        for i in range(1, 10):
+            print ("\n")
+
+    elif yesno.lower() == 'n':
+        print ("Sorry, but that means the program cannot run.")
+        sleep(1)
+        AbruptTerminate("ModuleNotFoundError")
