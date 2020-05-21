@@ -1,0 +1,11 @@
+Hello, fellow user!
+
+It's me, Indra!
+I see you've given in to boredom (or curiosity) and have started to look around the game files!
+Good for you!
+Whether or not you actually know how to program (specifically in Python 3), I hope you can learn something from this!
+
+Be careful if you want to change any variables or so-called "Constants" (Python doesn't have any), because if you don't know what you're doing, you might break something.
+
+Thanks for Downloading this Project!
+                            - Indra

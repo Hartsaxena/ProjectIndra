@@ -6,13 +6,13 @@ print("Video Games?")
 sleep(2)
 print("Sorry, but I don't really have a lot of experience with Video Games...")
 sleep(3)
-print("I've played some, though!")
+print("I've played a few, though!")
 sleep(2)
 print("I'm really interested in the Horror genre!")
 sleep(2)
-print("I don't really like those cliche Horror games that rely on cheap scares, but there are some really\nunique ones out there!")
+print("I don't really like those cliche Horror games that rely on cheap scares,\nbut there are some really unique ones out there!")
 sleep(3)
-yesno = input("Do you like playing Horror games, " + name + "? ")
+yesno = input(f"Do you like playing Horror games, {name}?")
 if Yes(yesno.lower()) == True or Like(yesno) == True:
     no = False
     print("Me too!")
@@ -38,5 +38,5 @@ if No(yesno.lower()) == True or Dislike(yesno) == True:
     nomessage = "I'm sure you're into different types of video games, though!"
 print(nomessage)
 sleep(2.75)
-genreinput = input("What genre of Video Games do you prefer?")
+genreinput = input("What genre of Video Games do you prefer? ")
 exec(open(indrafolder / "Misc/GameSelections.py").read())

@@ -11,7 +11,7 @@ if DaysSince(lastlogdate) == 0 and localfirst == False:
         sleep(2.5)
 
 elif DaysSince(lastlogdate) == -2 or DaysSince(lastlogdate) == -1:
-    print("Ummm...")
+    slowprint("Ummm", lead_dots = True)
     sleep(2)
     print("I'm not sure if I somehow accidently performed time travel, but it seems I've gone back in time.")
     sleep(3)
@@ -69,6 +69,7 @@ elif DaysSince(lastlogdate) == -2 or DaysSince(lastlogdate) == -1:
         sleep(1)
         CustomRecord("Changed Time", str(
             DaysSince(lastlogdate)) + " Days", -10)
+    RecordedTerminate()
 
 elif DaysSince(lastlogdate) < -2:
     print("You changed the time on your clock, didn't you?")

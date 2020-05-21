@@ -19,16 +19,17 @@ if loveBonus == 3:
     CalmRejection()
 else:
     if interest >= 100:
-        print("Ummm...")
-        sleep(1)
+        slowprint("Ummm", lead_dots = True)
         print("I don't think that would work out too well.")
         sleep(2)
         print("I'm actually not sure if it is legal to marry an AI.")
         sleep(2.5)
         print("Sorry!")
+        sleep(1)
         MiddleRejection()
     elif interest < 100 and interest >= 75:
-        print("Sorry, but I don't think we know each other enough for that")
+        print("Sorry, but I don't think we know each other enough for that.")
+        sleep(1.5)
         interest = interest - 1
         MiddleRejection()
     else:
@@ -36,7 +37,7 @@ else:
         sleep(2)
         print("That's...")
         sleep(3)
-        print("Insane")
+        print("Insane.")
         sleep(2)
         HardRejection()
-        sys.exit("Sorry, but no")
+        sys.exit("Sorry, but no.")

@@ -53,7 +53,7 @@ else:
     sleep(2)
     # if name.lower()==''
 
-    # Executes if namereject is True and records it in the logs
+    # Executes if namereject == True and records it in the logs
 if namereject == True:
     a = open(intlog, "a+")
     a.write('Name Rejected: ' + name + "   Time: " + currentdate)

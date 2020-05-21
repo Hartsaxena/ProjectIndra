@@ -23,7 +23,7 @@ if loveBonus == 3:
             sleep(1)
             print("Why would you endanger yourself like that?!")
             sleep(2)
-            print("...")
+            slowprint(lead_dots=True)
             sleep(2)
             print(
                 "Sorry, I just really care about you and would hate for you to get some terrible disease.")
@@ -68,8 +68,8 @@ else:
         print("Don't go outside too much, unless absolutely necessary.")
         sleep(3)
         while topicdone == False:
-            yesno = input("Are you staying home, " + name + "? ")
-            if Yes(yesno.lower()) == True:
+            yesno = input(f"Are you staying home, {name}? ")
+            if Yes(yesno) == True:
                 print("Good!")
                 sleep(1)
                 print(
@@ -78,14 +78,14 @@ else:
                 print("Take care of yourself!")
                 topicdone = True
                 sleep(2)
-            elif No(yesno.lower()) == True:
+            elif No(yesno) == True:
                 print(name + "...")
                 sleep(2)
                 print("You really should take better care of yourself.")
                 sleep(2)
                 print("I understand if you can't help it, or you have a job to do.")
                 sleep(2.5)
-                print("...")
+                slowprint(lead_dots=True)
                 sleep(2)
                 print("Just take care of yourself, ok?")
                 topicdone = True

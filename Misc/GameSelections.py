@@ -72,7 +72,7 @@ elif genre == 'shooter' or genre == 'shooter games':
     while topicdone == False:
         goodplayer = input("Would you say you're a good player, " + name + "?")
         lowerplayer = goodplayer.lower()
-        if lowerplayer == 'yes' or lowerplayer == 'yep' or lowerplayer == 'definitely':
+        if Yes(lowerplayer) == True:
             topicdone = True
             if loveBonus == 3 or interest >= 150:
                 print("Really?")
@@ -90,7 +90,7 @@ elif genre == 'shooter' or genre == 'shooter games':
                 print(
                     "It's always nice to meet someone who has the same interests as you.")
             sleep(2.5)
-        elif lowerplayer == 'no' or lowerplayer == 'nope' or lowerplayer == 'not really':
+        elif No(lowerplayer) == True:
             topicdone = True
             if loveBonus == 3 or interest >= 150:
                 print("Awww")
@@ -115,7 +115,7 @@ elif genre == 'shooter' or genre == 'shooter games':
             sleep(2)
 
 
-elif genre == 'fighting' or genre == 'fighting games' or genre == 'beat-em up' or genre == 'beatem' or genre = 'beatemup':
+elif genre == 'fighting' or genre == 'fighting games' or genre == 'beat-em up' or genre == 'beatem' or genre == 'beatemup':
     print("Fighting games, eh?")
     sleep(2)
     print("I can't say I completely blame you.")
@@ -146,11 +146,11 @@ elif genre == 'fighting' or genre == 'fighting games' or genre == 'beat-em up' o
     while topicdone == False:
         hurtinginput = input("You don't try and hurt others, right?")
         hurting = hurtinginput.lower()
-        if hurting == 'yes' or hurting == 'yep' or hurting == 'of course' or hurting == 'definitely':
-            print("...")
+        if Yes(hurting) == True:
+            slowprint(lead_dots = True)
             sleep(2)
             if loveBonus == 3:
-                print(name + "...")
+                slowprint(message = name, lead_dots = True)
                 sleep(2)
                 print("Don't tell me you enjoy hurting others.")
                 sleep(2)
@@ -172,16 +172,16 @@ elif genre == 'fighting' or genre == 'fighting games' or genre == 'beat-em up' o
                 sleep(1)
                 print("Don't say you actually enjoy hurting others!")
                 sleep(2.25)
-                print("...")
+                slowprint(lead_dots = True)
                 sleep(2)
                 print("Does the excitement really overwhelm you that much?")
                 sleep(2)
-                print("...")
+                slowprint(lead_dots = True)
                 sleep(2)
                 print("That's so disgusting.")
                 CustomRecord("Mentioned Hurting Others", "Fighting Games", -5)
             topicdone = True
-        elif hurting == 'no' or hurting == 'nope' or hurting == 'not really' or hurting == 'definitely not' or hurting == 'of course not':
+        elif No(hurting) == True:
             if loveBonus == 3:
                 print("Of course!")
                 sleep(2)
@@ -200,7 +200,7 @@ elif genre == 'fighting' or genre == 'fighting games' or genre == 'beat-em up' o
                 sleep(2)
                 print("This is awkward...")
                 sleep(2)
-                print("...")
+                slowprint(lead_dots = True)
                 sleep(2)
                 print("Let's forget about this, ok?")
                 CustomRecord("Indra expected different", "Fighting Games", +7)
@@ -212,25 +212,25 @@ elif genre == 'fighting' or genre == 'fighting games' or genre == 'beat-em up' o
                 print(
                     "Or actually, I wouldn't be able to stand knowing you hurt others at all.")
                 sleep(2.25)
-                print("Ahaha...")
+                slowprint("Ahaha", lead_dots = True)
                 sleep(1.25)
                 if interest >= 175:
                     print("Sorry if I'm talking a bit too fast to think right now.")
                     sleep(2.5)
                     print("I'm a little hot right now.")
                     sleep(2)
-                    print("...")
+                    slowprint(lead_dots = True)
                     sleep(2)
                     print("Don't think about it too much!")
                     sleep(1.75)
                     print("Gosh, I'm really rambling too much aren't I?")
                     sleep(2)
-                    print("Ahaha...")
+                    slowprint("Ahaha", lead_dots = True)
                     CustomRecord("Indra Blushed", "Rambling", +5)
                 print("Whoops!")
             topicdone = True
         else:
-            print("Ummm...")
+            slowprint("Ummm", lead_dots = True)
             sleep(1.75)
             print("What was that?")
             sleep(1.5)
@@ -256,7 +256,7 @@ elif genre == 'stealth' or genre == 'stealth games':
     skilledinput = input(
         "Say " + name + ''', do you often play the so-called "Loud" route?''')
     skilled = skilledinput.lower()
-    if skilled == 'yes' or skilled == 'yep' or skilled == 'definitely' or skilled == 'of course':
+    if Yes(skilled) == True:
         print("Oh...")
         sleep(1.25)
         print("I suppose that's fine.")
@@ -272,14 +272,14 @@ elif genre == 'stealth' or genre == 'stealth games':
             print("I can't help but feel that that's sort of cowardly.")
             sleep(2.5)
         CustomRecord("Showed cowardice", "Stealth Games", -5)
-    elif skilled == 'no' or skilled = 'nope' or skilled == 'not really' or skilled == 'of course not' or skilled == 'definitely not':
+    elif No(skilled) == True:
         print("At least you're brave enough to admit that!")
         sleep(2)
         print("Most people get embarrased because of those kinds of things, and so they never get around to trying to get better.")
         sleep(3)
         print("As long as you're trying to get better, I won't judge you!")
         sleep(2.5)
-    elif skilled == "i'd rather not say" or skilled == 'i would rather not say' or skilled == 'rather not say' or skilled == "i don't want you to know":
+    elif skilled == "i'd rather not say" or skilled == 'i would rather not say' or skilled == 'rather not say' or skilled == "i don't want you to know" or skilled == "id rather not say":
         if loveBonus == 3 or interest >= 150:
             print("That's ok, " + name + ', I understand.')
             sleep(2)
@@ -350,7 +350,7 @@ elif genre == 'rythm' or genre == 'rythm games':
 
 elif 'horror' in genre or genre == 'scary games' or genre:
     if no == False:
-        print("...")
+        slowprint(lead_dots = True)
         sleep(1)
         print("Of course I know that! We were just talking about it!")
         sleep(2)
@@ -447,10 +447,10 @@ elif genre == 'exercise' or genre == 'exercising' or genre == 'exercise games' o
 elif 'learning' in genre or 'education' in genre:
 
 elif 'hentai' in genre or 'porn' in genre:
-    print("...")
+    slowprint(lead_dots = True)
     sleep(2)
     if loveBonus == 3:
-        print("Ahaha...")
+        slowprint("Ahaha", lead_dots = True)
         sleep(2)
         print("I suppose it's normal for some people...")
         sleep(2)
@@ -473,7 +473,7 @@ elif 'hentai' in genre or 'porn' in genre:
     elif negloveBonus == 3 or interest <= 50:
         print("You seem like that kind of person.")
         sleep(2)
-        print("...")
+        slowprint(lead_dots = True)
         sleep(2)
         print("Pervert.")
         CustomRecord("Mentioned Awkward Game Genre", "Pornography", -5,)
@@ -498,7 +498,7 @@ else:
             print("Especially if I can learn them from you.  <3")
             sleep(2.5)
     elif negloveBonus == 3 or interest <= 50:
-        print("...")
+        slowprint(lead_dots = True)
         sleep(2)
         print("Oh, you must be one of those people.")
         sleep(2)

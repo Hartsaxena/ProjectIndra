@@ -15,7 +15,7 @@ while topicdone == False:
             sleep(2.75)
         else:
             name = changer
-            print("...")
+            slowprint(lead_dots = True)
             sleep(2)
             print("Ok!")
             sleep(1.5)

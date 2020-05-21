@@ -11,7 +11,7 @@ sleep(2)
 if firsttimeIndra == True:
     print("Since this topic is supposed to be all about me, I'm gonna override some code just to show off real quick...")
     sleep(4)
-    print("don't tell the creator!")  # First Aspect of lore for now.
+    print("don't tell the creator!")
     os.makedirs(
         imindra, exist_ok=True)
     IndraComment()
@@ -88,11 +88,11 @@ while repeating < 4:
             CustomRecord("Loved Indra", "Repeat", +3)
             repeating = 5
         elif interest >= 150:
-            print("...")
+            slowprint(lead_dots = True)
             sleep(2)
             print("Wh-What?")
             sleep(2)
-            print("...")
+            slowprint(lead_dots = True)
             sleep(2)
             print("Really?")
             sleep(2)

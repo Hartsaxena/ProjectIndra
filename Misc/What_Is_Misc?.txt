@@ -8,7 +8,7 @@ Most of these files are just helper files (Files that assist Main files) that ma
 
 If you want to add more things to the game, I recommend putting your modded files in A folder called "custom". I've already made a Path variable for this folder:
 
-custom = Path(Path.home()/"Documents/ProjectIndra/Misc/custom")
+custom = Path(indrafolder / "Misc/custom")
 
 Good luck modding!
 
@@ -16,3 +16,7 @@ If you're not here to mod (which you probably aren't), then Good luck... Playing
 
 With love,
         Indra
+
+
+Thank you for downloading this project! I worked pretty hard to create this, so I appreciate any feedback you can give!
+I welcome all Suggestions!

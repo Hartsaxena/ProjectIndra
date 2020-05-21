@@ -1,0 +1,15 @@
+You could be looking through this most-likely empty file and thinking "What is this used for?"
+
+This is basically a folder that exists for the sole purpose of allowing users to add their own programs to it!
+There is a Path variable that's already assigned to this folder in the files:
+
+custom = Path(indrafolder / "Misc/custom")
+
+Thank you!
+If you don't plan on modifying this game in any way, then you can just delete this folder.
+If you change your mind, you just need to create an empty folder called "custom", just like this one!
+
+Thank you for downloading this program.
+
+With love,
+         - Indra

@@ -2,7 +2,7 @@
 # This also makes my job easier
 
 
-vitals = Path(Path.home()/"Documents/ProjectIndra/Vitals")
+vitals = Path(HOME_PATH / "ProjectIndra/Vitals")
 
 
 def restart():
@@ -32,12 +32,33 @@ def DaysSince(givendate):
             currentdateexact[0], currentdateexact[1], currentdateexact[2])
         g = list(givendate)
         pastdate = date(g[0], g[1], g[2])
-        operator = (currentdate - pastdate).days
-        result = operator
+        # This should normally be a positive number
+        result = (currentdate - pastdate).days
         return result
     else:
         print("Sorry, but the datatype you entered could not be turned into a date.")
         return "ValueError"
+
+
+def NametoMonth(month_name):
+    month_name = month_name.lower()
+    monthlist = {
+        "january": "jan",
+        "february": "feb",
+        "march": "mar",
+        "april": "apr",
+        "may": "may",
+        "june": "jun",
+        "july": "jul",
+        "august": "aug",
+        "september": "sep",
+        "october": "oct",
+        "november": "nov",
+        "december": "dec"
+    }
+    if month_name in monthlist:
+        month_name = monthlist[month_name]
+    return strptime(month_name, "%b").tm_mon
 
 
 # This finds the amount of lines in a file
@@ -50,17 +71,20 @@ def linesin(filepath):
         file.close()
         return result
     else:
-        print ("FUNCTION ERROR")
-        print ("The filepath given doesn't exist.")
-        print ("Function: linesin")
+        print("FUNCTION ERROR")
+        print("The filepath given doesn't exist.")
+        print("Function: linesin")
 
 # Notification function that doesn't really have a use yet. It just looked cool. Might find a use for this later
-def notify(title, text):
+
+
+def notify(title = "Title", text = "Body text"):
     os.system("""
         osascript -e 'display notification "{}" with title "{}"'
         """.format(text, title))
 
 # Functions that detects a bunch of different ways to say "Yes" or "No"
+
 
 def Yes(function):
     lowercase_function = function.lower()
@@ -69,6 +93,7 @@ def Yes(function):
     else:
         return False
 
+
 def No(function):
     lowercase_function = function.lower()
     if lowercase_function == 'no' or lowercase_function == 'nope' or lowercase_function == 'n' or lowercase_function == 'nah' or lowercase_function == 'definitely not' or lowercase_function == 'no way' or lowercase_function == 'not really' or 'sorry but no' in lowercase_function or lowercase_function == 'sorry, but no':
@@ -76,16 +101,18 @@ def No(function):
     else:
         return False
 
-def Like(function):
+
+def Like(function, topic=""):
     function = function.lower()
-    if 'i love' in function or function == 'i really like it' or function == 'i enjoy it' or 'i like' in function:
+    if f'i love {topic}' in function or function == 'i really like it' or function == 'i enjoy it' or 'i like' in function:
         return True
     else:
         return False
 
-def Dislike(function):
+
+def Dislike(function, topic=""):
     function = function.lower()
-    if "i don't like" in function or "i really don't like" in function or function == 'i hate it' or function == 'i hate them' or function == 'i really hate them':
+    if "i don't like" in function or "i really don't like" in function or function == 'i hate it' or function == 'i hate them' or function == 'i really hate them' or function == f"i don't like {topic}":
         return True
     else:
         return False
@@ -176,14 +203,14 @@ def LoveDisagreed():
     global loveBonus
     global negloveBonus
 
-    difference = interest - (interest-50)
+    difference = interest - (interest - 50)
     interest = 50
 
     l = open(indrafolder / "Don't_Love_You.txt", 'w')
     l.write("I can't believe you would have the nerve to say something like that!\n")
     l.close()
     a = open(intlog, "a")
-    a.write("Rejected by Indra  |  SET 50 (-"+str(difference)+")  | " +
+    a.write("Rejected by Indra  |  SET 50 (-" + str(difference) + ")  | " +
             str(interest + difference) + " --> " + str(interest) + "\n")
     a.close()
     negloveBonus = 3
@@ -307,6 +334,28 @@ def RecordedRestart():
     os.execl(sys.executable, sys.executable, * sys.argv)
 
 
+def slowprint(message = '', interval = 0, lead = "", lead_interval = 0.5, lead_dots = False, newline = "\n"):
+    '''Prints a string slowly, letter by letter.'''
+
+    for letter in message:
+        sys.stdout.write(letter)
+        sys.stdout.flush()
+        sleep(interval)
+    if lead_dots == True:
+        for i in range(1, 4):
+            sleep(0.75)
+            sys.stdout.write(".")
+            sys.stdout.flush()
+        sleep(0.75)
+    elif lead != "":
+        sleep(lead_interval/2)
+        for letter in lead:
+            sys.stdout.write(letter)
+            sys.stdout.flush()
+            sleep(lead_interval)
+    print(newline)
+
+
 # Record Player Status
 
 
@@ -325,7 +374,7 @@ def GenderSet():
 # Recording through text files.
 # Moved to a sub-file to reduce clutter.
 
-exec(open(vitals/"FunctionsReset_Save_Load.py").read())
+exec(open(vitals / "FunctionsReset_Save_Load.py").read())
 
 # Older versions of the Save and Load function, if needed:
 #
@@ -369,13 +418,15 @@ exec(open(vitals/"FunctionsReset_Save_Load.py").read())
 #
 
 
-# def execute(file):
-#     exec(open(Path.home()/"Documents/ProjectIndra"/Path(file)))
+def execute(file_path):
+    exec(open(file_path).read())
+
 
 # Download Modules in case the player doesn't already have them installed
 
 def install(package):
     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
 
 def uninstall(package):
     subprocess.check_call([sys.executable, '-m', 'pip', 'uninstall', package])

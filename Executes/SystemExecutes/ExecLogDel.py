@@ -1,12 +1,12 @@
 # This is executed when the Player asks Indra to delete recorded logs through the topics "Reset" or "Clear Data"
 ignoreinteract = True
-
+topicdone = False
 while topicdone == False:
     print("Are you sure? doing this will delete all recorded data\nthat this Program has created thus far.")
     sleep(2)
     print ("This will also effectively factory reset the game.")
     yesno = input("Yes or No? ")
-    if yesno.lower() == 'yes' or yesno.lower() == 'y' or yesno.lower() == 'sure' or yesno.lower() == 'ok':
+    if Yes(yesno) == True:
         print("Deleting Logs Directory...")
         try:
             shutil.rmtree(indrafolder / "Logs")
@@ -32,6 +32,7 @@ while topicdone == False:
             exec(open(misc / "RandomText.py").read())
             print("Finished!")
             sleep(2)
+            print ("")
             print("This program will terminate in")
             print("3...")
             sleep(1)
@@ -43,7 +44,7 @@ while topicdone == False:
             print("Sorry! Something went wrong and I am not able to delete the ProjectIndra files")
             sleep(2)
         sys.exit()
-    if yesno.lower() == 'no' or yesno.lower() == 'not really' or yesno.lower() == 'nope' or yesno.lower() == 'n':
+    if No(yesno) == True:
         print("Thank you for reconsidering.")
         sleep(1.75)
         topicdone = True

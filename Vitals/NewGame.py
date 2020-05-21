@@ -35,5 +35,20 @@ if firstrun == False:
             exec(open(sysexecutes / "ExecLogDel.py").read())
         elif resetconfirm.lower() == 'no' or resetconfirm.lower() == 'not really' or resetconfirm.lower() == 'n':
             sys.exit("Sorry, but the game cannot run and has been Terminated.")
+    except:
+        print ("Sorry, but something went wrong while loading the save data.")
+        sleep(2)
+        topicdone = False
+        while topicdone == False:
+            yesno = input("Would you like to reset the game? ")
+            if Yes(yesno) == True:
+                topicdone = True
+                exec(open(sysexecutes/"ExecLogDel.py").read())
+            elif No(yesno) == True:
+                topicdone = True
+                RecordedTerminate("Sorry, but the program cannot be processed and has been\nterminated automatically.")
+            else:
+                topicdone = False
+
     print("Welcome back, " + name + ".")
     sleep(1.5)
