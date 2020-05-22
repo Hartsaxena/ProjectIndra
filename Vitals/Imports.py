@@ -35,6 +35,7 @@ try:
 
 # Installs all modules in case the user hasn't downloaded them already (which is very likely)
 except ModuleNotFoundError:
+    print ("")
     print ("Sorry, but it seems that there was a problem importing required modules.")
     sleep(2.5)
     print ("I can install the required modules if you like!")
@@ -51,16 +52,17 @@ except ModuleNotFoundError:
         install('pillow')
         install('pyautogui')
         install('word2number')
+        install("git-python")
 
         for i in range(1, 3):
             print ('\n')
-        print ("Thank you for downloading the modules.")
+        print ("Thank you for being patient and downloading the modules.")
         sleep(2)
-        print ("The program will now attempt to import the modules again and continue.")
-        RecordedRestart()
-
-        for i in range(1, 15):
-            print ("\n")
+        print ("The Program will now terminate.")
+        sleep(2)
+        print ("Please restart the program.")
+        sleep(1.25)
+        AbruptTerminate()
 
     elif yesno.lower() == 'n':
         print ("Sorry, but that means the program cannot run.")

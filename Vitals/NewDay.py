@@ -131,5 +131,3 @@ elif DaysSince(lastlogdate) > 0:
     else:
         print("Long time no see!")
         sleep(2)
-
-# TODO: Create Indra's Reaction to how long it has taken the player to come back

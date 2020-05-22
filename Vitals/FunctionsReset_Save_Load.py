@@ -23,6 +23,9 @@ def Save(message = False):
             },
             "petsprofile":{
                 "pets": pets,
+                "pet_type": pet_type,
+                "petname": petname,
+                "pet_type_amount": pet_type_amount,
             },
         },
         "interest": interest,
@@ -61,6 +64,7 @@ def Load():
     global firsttimeVideoGames
     global gender
     global interactions
+    global petname
     global interest
     global lastlogdate
     global lastlogdateday
@@ -68,8 +72,10 @@ def Load():
     global lastlogdateyear
     global loveBonus
     global name
-    global nextyear
     global negloveBonus
+    global nextyear
+    global pet_type
+    global pet_type_amount
     global pets
 
     savefilepath = saves / "save.json"
@@ -86,6 +92,9 @@ def Load():
 
     nextyear = sdict["profile"]["agevars"]["nextyear"]
     pets = sdict["profile"]["petsprofile"]["pets"]
+    pet_type = sdict['profile']['petsprofile']['pet_type']
+    pet_type_amount = sdict['profile']['petsprofile']['pet_type_amount']
+    petname  = sdict['profile']['petsprofile']['petname']
 
     interest = sdict["interest"]
     interactions = sdict["interactions"]

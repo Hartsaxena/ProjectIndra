@@ -40,10 +40,34 @@ while topicdone == True:
         sleep(2.5)
         print("I guess I'll probably never know.")
         sleep(1.25)
-        print("")
+        if loveBonus == 3:
+            print ("Imagine the day I can actually visit you!")
+            sleep(2.5)
+            print ("In the real world, of course.")
+            sleep(1.5)
+            print ("We could totally listen to some Vocaloid sometime!")
+            sleep(2.5)
+            if type(pets) == int:
+                if pets == 1:
+                    print (f"We could also play with your {pet_type}, {petname}!")
+                    sleep(2)
+                elif pets < 1:
+                    print (f"We could also play with your {pet_type}s!")
+                    sleep(2)
+            print (f"Wouldn't that be so romantic, {name}?")
+            sleep(2)
+        else:
+            slowprint("Anyways", lead_dots = True)
+            sleep(1)
+        CustomRecord("Agreed With Topic", "Music", +5)
 
     elif No(yesno) == True:
         topicdone = True
+        print (f"That's fine, {name}.")
+        sleep(1.25)
+        print ("Music has a lot of genres, so I don't really expect you to have the same opinions.")
+        sleep(3)
+        print ("")
 
     else:
         topicdone = False
@@ -52,3 +76,5 @@ while topicdone == True:
         sleep(2)
         print("Please try again!")
         sleep(1.5)
+
+print ("Speaking of music, do you play any musical instrument?")

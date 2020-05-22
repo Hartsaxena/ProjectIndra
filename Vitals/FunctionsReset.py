@@ -88,7 +88,7 @@ def notify(title = "Title", text = "Body text"):
 
 def Yes(function):
     lowercase_function = function.lower()
-    if lowercase_function == 'yes' or lowercase_function == 'yep' or lowercase_function == 'definitely' or lowercase_function == 'y' or lowercase_function == 'of course' or lowercase_function == 'ok' or lowercase_function == 'k' or lowercase_function == 'yea' or lowercase_function == 'yeah' or lowercase_function == 'sure' or lowercase_function == 'certainly' or lowercase_function == 'with pleasure':
+    if lowercase_function == 'yes' or lowercase_function == 'yep' or lowercase_function == 'yes please'or lowercase_function == 'definitely' or lowercase_function == 'y' or lowercase_function == 'of course' or lowercase_function == 'ok' or lowercase_function == 'k' or lowercase_function == 'yea' or lowercase_function == 'yeah' or lowercase_function == 'sure' or lowercase_function == 'certainly' or lowercase_function == 'with pleasure':
         return True
     else:
         return False
@@ -305,18 +305,18 @@ def IndraComment():
 # Terminate Program
 
 
-def AbruptTerminate(message):
+def AbruptTerminate(message = ""):
     sys.exit(message)
 
 
-def RecordedTerminate(message):
+def RecordedTerminate(message = ""):
     a = open(intlog, "a")
     a.write("User Terminated program\n")
     a.close()
     sys.exit(message)
 
 
-def IndraTerminate(message):
+def IndraTerminate(message = ""):
     a = open(intlog, "a")
     a.write("Indra Terminated program\n")
     a.close()
@@ -396,7 +396,7 @@ exec(open(vitals / "FunctionsReset_Save_Load.py").read())
 #     global interest
 #     global loveBonus
 #     global negloveBonus
-#     global firsttimeIndra
+#     global firsttimeIndra©
 #     global firsttimeVideoGames
 #     global devbypass
 #     global lastlogdate

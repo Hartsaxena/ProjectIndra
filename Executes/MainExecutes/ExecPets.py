@@ -2,15 +2,18 @@
 # TODO: actually complete this
 
 # I just couldn't resist trying some f-strings, sorry!
-print(
-    f"I don't actually have any pets, {name},\nso I don't really have an opinion on those.")
+print ("I've never had any pets, so I don't really have an opinion on them.")
 sleep(2.5)
 print("I've heard there are plenty of different types of pets, though!")
 sleep(2)
-print("It can be anything from a Dog or a Cat,\nto something much more exotic like a Snake or a Frog!")
-sleep(2.5)
+print("It can be anything from a Dog or a Cat,")
+sleep(1.75)
+print ("to something much more exotic like a Snake or a Frog!")
+sleep(2)
 while topicdone == False:
     petsinput = input(f"How many pets do you own, {name}? ")
+    if petsinput.lower() == 'none' or petsinput.lower() == 'no pets' or petsinput.lower() == 'no pet':
+        petsinput = 0
     try:
         petsinput = int(petsinput)
         error = False
@@ -19,8 +22,23 @@ while topicdone == False:
         error = True
         topicdone = False
     if error == False:
+        if petsinput < 0:
+            print ("...")
+            sleep(2)
+            print ("That's a bit bizzare, don't you think?")
+            sleep(1.5)
+            if loveBonus == 3:
+                print (f"I know you're just joking, {name}.")
+                sleep(1.5)
+                print ("Love you!")
+                sleep(1)
+                print ("Please do try again, ok?")
+                sleep(1.25)
+            print ("Please try again, and be serious this time, ok?")
+            sleep(2)
+            topicdone = False
         if type(pets) == int:
-            if pets > petsinput:
+            if pets > petsinput and petsinput < 0:
                 print("Oh.")
                 sleep(1)
                 print(f"Sorry, {name}.")
@@ -44,22 +62,7 @@ while topicdone == False:
                 sleep(1.5)
                 sensitive = False
         else:
-            if petsinput < 0:
-                print ("...")
-                sleep(2)
-                print ("That's a bit bizzare, don't you think?")
-                sleep(1.5)
-                if loveBonus == 3:
-                    print (f"I know you're just joking, {name}.")
-                    sleep(1.5)
-                    print ("Love you!")
-                    sleep(1)
-                    print ("Please do try again, ok?")
-                    sleep(1.25)
-                print ("Please try again, and be serious this time, ok?")
-                sleep(2)
-                topicdone = False
-            elif petsinput == 0:
+            if petsinput == 0:
                 print(f"That's ok, {name}.")
                 sleep(1.5)
                 print("A lot of people don't own pets!")
@@ -87,7 +90,7 @@ while topicdone == False:
                 print(
                     "It's not really good to have too many pets, since they can do some pretty nasty things.")
                 sleep(2)
-                print("Not too mention health issues...")
+                slowprint("Not to mention health issues", lead_dots = True)
                 sleep(1.5)
                 print("You can never be too safe!")
                 sleep(1.5)
@@ -121,6 +124,10 @@ while topicdone == False:
                 sleep(1)
                 print(f"That's not really normal, {name}.")
                 sleep(1.5)
+                print (f"Too many pets aren't good for you, {name}.")
+                sleep(1.5)
+                print ("I hope you're careful.")
+                sleep(2)
                 print("I'm sure you love each and everyone of them, though!")
                 sleep(1.5)
                 if loveBonus == 3:
@@ -154,7 +161,7 @@ if sensitive == False:
             print(
                 "In reality, The International Cat Association lists 71 different types of cats!")
             sleep(2.75)
-            print("They're all so cute ≧◡≦")
+            print("They're all so cute! ≧◡≦")
             sleep(2)
             print("I wish I owned a cat!")
             sleep(2)
@@ -176,19 +183,32 @@ if sensitive == False:
                 topicdone = False
                 while topicdone == False:
                     yesno = input(f"Tell me, {name}, do you own a cat? ")
-                    if Yes(yesno) == True or yesno.lower() == 'i own a cat':
+                    if Yes(yesno) == True or yesno.lower() == 'i own a cat' or yesno.lower() == 'yes i do':
+                        while topicdone == False:
+                            new_pet_type_amount = input("How many do you own? ")
+                            try:
+                                pet_type_amount = int(new_pet_type_amount)
+                                topicdone = True
+                            except ValueError:
+                                topicdone = False
+                                print ("Sorry, but that's not a valid number.")
+                                sleep(2)
+                                print ("Please try again.")
+                                sleep(1.25)
+                        pet_type = "cat"
                         topicdone = True
                         print(f"That's so cool, {name}!")
                         sleep(1.25)
                         if pets == 1:
-                            petname = input("What's your cat's name? ").lower()
-                            if petname in cusswords:
+                            petname = input("What's your cat's name? ")
+                            if petname.lower() in cusswords:
                                 cussed = True
                                 print ("You're joking, right?")
                                 sleep(1.25)
                                 print ("That's not even funny...")
                                 sleep(1.5)
                                 print ("I can't believe you would even say something like that.")
+                                sleep(2)
                                 CustomRecord("Cussword", petname, -15)
                             else:
                                 if negloveBonus == 3 or interest <= 75:
@@ -209,7 +229,7 @@ if sensitive == False:
                             sleep(1.5)
                             print ("They must be so cute~")
                             sleep(1.5)
-                    elif No(yesno) == True or yesno.lower() == "i don't own a cat" or yesno.lower() == "i dont own a cat":
+                    elif No(yesno) == True or yesno.lower() == "i don't own a cat" or yesno.lower() == "i dont own a cat" or yesno.lower() == "no i don't" or yesno.lower() == "no i dont":
                         topicdone = True
                         print(f"That's ok, {name}!")
                         sleep(1)
@@ -231,8 +251,7 @@ if sensitive == False:
                 CustomRecord("Agreed with Topic", "Cats", +3)
             topicdone = True
         elif judgeres == 'dogs' or judgeres == 'dogs are better' or judgeres == 'canines' or judgeres == 'i like dogs':
-            topicdone = True
-            print("Dogs is probably the most common answer, to be honest.")
+            print("Dogs are probably the most common answer, to be honest.")
             sleep(2.5)
             print("I don't really have an opinion on whether or not dogs are better than cats,\nsince I don't have one...")
             sleep(3)
@@ -248,6 +267,72 @@ if sensitive == False:
                 sleep(2.5)
                 print("You're all I'll ever need, after all  <3")
                 sleep(1.5)
+            if pets != 0:
+                topicdone = False
+                while topicdone == False:
+                    yesno = input(f"Do you own a dog, {name}? ")
+                    if Yes(yesno) == True or yesno.lower() == 'i own a dog' or yesno.lower() == 'yes i do':
+                        while topicdone == False:
+                            new_pet_type_amount = input("How many do you own?")
+                            try:
+                                pet_type_amount = int(new_pet_type_amount)
+                                topicdone = True
+                            except ValueError:
+                                topicdone = False
+                                print ("Sorry, but that's not a valid number.")
+                                sleep(1.5)
+                                print ("Please try again.")
+                                sleep(1.25)
+                        print ("That's great!")
+                        sleep(1.25)
+                        pet_type = 'dog'
+                        topicdone = False
+                        petname = input("What's your dog's name? ")
+                        if petname.lower() in cusswords:
+                            cussed = True
+                            print ("You're joking, right?")
+                            sleep(1.25)
+                            print ("That's not even funny...")
+                            sleep(1.5)
+                            print ("I can't believe you would even say something like that.")
+                            sleep(2)
+                            CustomRecord("Cussword", petname, -15)
+                        else:
+                            if negloveBonus == 3 or interest <= 75:
+                                print ("It's ok, I guess...")
+                            else:
+                                print ("That's a wonderful name!")
+                            sleep(1.5)
+                            if loveBonus == 3 or interest >= 130:
+                                print ("You really are quite smart, aren't you?")
+                                sleep(2)
+                            else:
+                                print (f"I would really love to meet {petname}!")
+                                sleep(2)
+                                print ("Hehe~")
+                                sleep(1.25)
+
+                    elif No(yesno) == True or yesno.lower() == "i don't own a dog" or yesno.lower() == "i dont own a dog" or yesno.lower() == "no i don't" or yesno.lower() == "no i dont":
+                        topicdone = True
+                        print(f"That's fine, {name}!")
+                        sleep(1)
+                        if pets == 1:
+                            print(
+                                "I'm sure that no matter what pet you own,\nyou love it with all your heart!")
+                        elif pets > 1:
+                            print ("I'm sure that you love all the pets you own with all of your heart!")
+                        sleep(2)
+                        if loveBonus == 3:
+                            print("You're just that kind of person, after all")
+                            sleep(1.5)
+                            print("<3")
+                            sleep(1)
+                    else:
+                        topicdone = False
+                        print ("Sorry, but I don't really know what that means.")
+                        sleep(1.5)
+                        print ("Please answer with yes or no.")
+                        sleep(1.5)
         else:
             topicdone = False
             print("Sorry, but that's not really an answer to my question...")

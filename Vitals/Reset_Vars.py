@@ -27,6 +27,9 @@ birthdate = date(1000, 1, 1)
 
 gender = None
 pets = None
+petname = None
+pet_type = None
+pet_type_amount = None
 nextyear = None
 interactions = 0
 topicdone = False  # Detects if the Topic is finished

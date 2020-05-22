@@ -1,7 +1,7 @@
 # This sets the List of Mainline Topics that is Recalled when suggesting a Random Topic
 # This Reduces the clutter on the Main Program
 topicsList = ["Robots", "Python", "Indra",
-              "Anime and Manga", "Monika", "Video Games", "Age"]
+              "Anime and Manga", "Monika", "Video Games", "Age", "Music"]
 robotFactsList = ["Did you know that the first computer was the Z1 computer created\nby the German Konrad Zuse in the year 1936?",
                   "did you know that the word 'typewriter' is the longest possible word\nyou can type with only one row of the US Keyboard?",
                   'The term "Robot" comes from the Czech word "Robota", meaning "Drudgery" or "Forced Labor".',
