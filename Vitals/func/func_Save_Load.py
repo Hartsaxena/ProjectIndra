@@ -1,6 +1,12 @@
 # These are technically supposed to be part of the FunctionsReset.py file, but since the more variables that are added to the game, the longer these two functions will get, I decided to move these to a seperate file
 
 
+
+##############################
+# SAVE
+##############################
+
+
 def Save(message = False):
     ''' Saves the game everytime the WhileReset file is run. '''
 
@@ -21,12 +27,13 @@ def Save(message = False):
                 },
                 "nextyear": nextyear
             },
-            "petsprofile":{
+            "petsprofile": {
                 "pets": pets,
                 "pet_type": pet_type,
                 "petname": petname,
                 "pet_type_amount": pet_type_amount,
             },
+            "instrument": instrument,
         },
         "interest": interest,
         "interactions": interactions,
@@ -40,8 +47,9 @@ def Save(message = False):
             "lastlogdateday": lastlogdate[2],
         },
         "firsttimes": {
-            "firsttimeIndra": firsttimeIndra,
-            "firsttimeVideoGames": firsttimeVideoGames,
+            "Indra.firsttime": Indra.firsttime,
+            "VideoGames.firsttime": VideoGames.firsttime,
+            "Music.firsttime": Music.firsttime,
         },
     }
     json.dump(savedict, savefile, indent=1)
@@ -50,20 +58,23 @@ def Save(message = False):
         print ("The game has been Saved!") # Unused
         sleep(1.5)
 
+##############################
+# LOAD
+##############################
 
-def Load():
+def Load(message = False):
     ''' Loads the Savefile at the beginning of each game session. '''
 
     ''' These simply allow me to change the variables from the function.
     I know global variables are not recommended, but I decided "Screw that!" and went along with it anyways'''
 
+    # I'm pretty sure class variables (like Indra.firsttime) are global...
     global age
     global birthdate
     global devbypass
-    global firsttimeIndra
-    global firsttimeVideoGames
     global gender
     global interactions
+    global instrument
     global petname
     global interest
     global lastlogdate
@@ -83,18 +94,19 @@ def Load():
         sdict = json.loads(j.read())
     j.close()
 
-    name = sdict["name"]
-    gender = sdict["profile"]["gender"]
-    age = sdict["profile"]["agevars"]["age"]
-    birthdate = date(
-        sdict['profile']['agevars']['birthdate']["year"], sdict["profile"]["agevars"]["birthdate"]["month"], sdict["profile"]["agevars"]["birthdate"]["day"]
-        )
+    profile = sdict["profile"]
 
-    nextyear = sdict["profile"]["agevars"]["nextyear"]
-    pets = sdict["profile"]["petsprofile"]["pets"]
-    pet_type = sdict['profile']['petsprofile']['pet_type']
-    pet_type_amount = sdict['profile']['petsprofile']['pet_type_amount']
-    petname  = sdict['profile']['petsprofile']['petname']
+    name = sdict["name"]
+    gender = profile["gender"]
+    age = profile["agevars"]["age"]
+    birthdate = date(profile['agevars']['birthdate']["year"], profile["agevars"]["birthdate"]["month"], profile["agevars"]["birthdate"]["day"])
+    instrument = profile["instrument"]
+
+    nextyear = profile["agevars"]["nextyear"]
+    pets = profile["petsprofile"]["pets"]
+    pet_type = profile['petsprofile']['pet_type']
+    pet_type_amount = profile['petsprofile']['pet_type_amount']
+    petname = profile['petsprofile']['petname']
 
     interest = sdict["interest"]
     interactions = sdict["interactions"]
@@ -102,10 +114,19 @@ def Load():
     negloveBonus = sdict["negloveBonus"]
     devbypass = sdict["devbypass"]
 
-    lastlogdateyear = sdict["lastlogdatevars"]["lastlogdateyear"]
-    lastlogdatemonth = sdict["lastlogdatevars"]["lastlogdatemonth"]
-    lastlogdateday = sdict["lastlogdatevars"]["lastlogdateday"]
-    lastlogdate = sdict["lastlogdatevars"]["lastlogdate"]
+    lastlogdatevars = sdict["lastlogdatevars"]
+    lastlogdateyear = lastlogdatevars["lastlogdateyear"]
+    lastlogdatemonth = lastlogdatevars["lastlogdatemonth"]
+    lastlogdateday = lastlogdatevars["lastlogdateday"]
+    lastlogdate = lastlogdatevars["lastlogdate"]
 
-    firsttimeIndra = sdict["firsttimes"]["firsttimeIndra"]
-    firsttimeVideoGames = sdict["firsttimes"]["firsttimeVideoGames"]
+    # firsttimes
+    # There will be a lot of these coming up
+    firsttimes = sdict['firsttimes']
+
+    Indra.firsttime = firsttimes["Indra.firsttime"]
+    VideoGames.firsttime = firsttimes["VideoGames.firsttime"]
+    Music.firsttime = firsttimes["Music.firsttime"]
+
+    if message == True:
+        print ("Game successfully loaded!")

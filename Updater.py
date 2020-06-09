@@ -1,28 +1,28 @@
 # This is executed when the Player wishes to update the game
 # Use this Program sparingly. Problems can happen.
+# This only downloads the Filed version of the project, not the WIP app.
 
 
 while topicdone == False:
     yesno = input(
-        "Are you sure? doing this will update the game to the current\nversion (In the github page). This will also reset the game.\nIn order to save progress, make a copy of the 'saves' file\nthat can be found in the Saves folder in the ProjectIndra folder.\n[y/n] ")
-    if yesno.lower() == 'yes' or yesno.lower() == 'y' or yesno.lower() == 'yep':
+        "Are you sure? doing this will update the game to the current\nversion (In the github page). This will also reset the game.\nIn order to save progress, make a copy of the 'save.json' file\nthat can be found in the Saves folder in the ProjectIndra folder.\n[y/n] ")
+    if Yes(yesno) == True:
         print("Ok!")
         time.sleep(1)
         print("Warning! Don't terminate this program while this is being run.\nDoing so can and most likely will\ncause serious problems.")
         print("Removing old files...")
-        if os.path.exists(HOME_PATH/"Indra.py") == True:
-            try:
-                os.remove(HOME_PATH/"Indra.py")
-            except:
-                shutil.rmtree(HOME_PATH/"Indra.py")  # Don't ask
+        if os.path.exists("Indra.py") == True:
+            if os.path.isfile("Indra.py"):
+                os.remove("Indra.py")
+            elif os.path.isdir("Indra.py"):
+                shutil.rmtree("Indra.py")  # Don't ask
         if os.path.exists(indrafolder) == True:
             shutil.rmtree(indrafolder)
         print("Downloading most recent version of Project Indra...")
-        git.Git(
-            Path.home() / "Documents").clone("https://github.com/Hartsaxena/ProjectIndra.git")
+        git.Git(Path.home() / "Documents").clone("https://github.com/Hartsaxena/ProjectIndra.git")
         url = 'https://raw.githubusercontent.com/Hartsaxena/Project-Indra/master/Indra.py'
         r = requests.get(url, allow_redirects=True)
-        open(HOME_PATH/"Indra.py", 'wb').write(r.content)
+        open("Indra.py", 'wb').write(r.content)
         print("Done!")
         sleep(1)
         print("This program will terminate in")
@@ -34,7 +34,7 @@ while topicdone == False:
         print("1")
         sleep(1)
         AbruptTerminate()
-    elif yesno.lower() == 'no' or yesno.lower() == 'not really' or yesno.lower() == 'nope':
+    elif No(yesno) == True:
         print("Ok!")
         sleep(1)
         print("Thank you for reconsidering.")
@@ -75,7 +75,7 @@ while topicdone == False:
             print("When a big paragraph comes up and you are asked to answer y or n,")
             sleep(2.75)
             print("Just answer n.")
-        elif rep = 3:
+        elif rep == 3:
             if interest >= 150 or loveBonus == 3:
                 print("Oh.")
                 sleep(1)
@@ -94,7 +94,7 @@ while topicdone == False:
                 sleep(2)
                 print("There can't possibly be someone as stupid as that.")
                 sleep(2)
-        elif rep = 50:
+        elif rep == 50:
             print("You really don't have a life, do you?")
             sleep(2)
             IndraTerminate()

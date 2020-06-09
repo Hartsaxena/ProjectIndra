@@ -288,7 +288,7 @@ if sensitive == False:
                         pet_type = 'dog'
                         topicdone = False
                         petname = input("What's your dog's name? ")
-                        if petname.lower() in cusswords:
+                        if word in petname for word in cusswords:
                             cussed = True
                             print ("You're joking, right?")
                             sleep(1.25)
@@ -296,7 +296,7 @@ if sensitive == False:
                             sleep(1.5)
                             print ("I can't believe you would even say something like that.")
                             sleep(2)
-                            CustomRecord("Cussword", petname, -15)
+                            CustomRecord("Cussed", topic, -10)
                         else:
                             if negloveBonus == 3 or interest <= 75:
                                 print ("It's ok, I guess...")

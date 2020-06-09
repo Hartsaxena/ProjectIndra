@@ -1,22 +1,13 @@
 # This Script sets certain variable values at the very Beginning of the Game
 # This doesn't set all variables.
 
-os.makedirs(HOME_PATH / "ProjectIndra/Saves/", exist_ok=True)
-os.makedirs(HOME_PATH / "ProjectIndra/Logs/", exist_ok=True)
-os.makedirs(HOME_PATH / "ProjectIndra/Misc", exist_ok=True)
-os.makedirs(HOME_PATH / "ProjectIndra/Images", exist_ok=True)
-os.makedirs(
-    HOME_PATH / "ProjectIndra/Executes/MainExecutes", exist_ok=True)
-os.makedirs(Path.home(
-) / "Documents/ProjectIndra/Executes/MiscellaneousExecutes", exist_ok=True)
-os.makedirs(
-    HOME_PATH / "ProjectIndra/Executes/SystemExecutes", exist_ok=True)
+os.makedirs("ProjectIndra/Saves/", exist_ok=True)
+os.makedirs("ProjectIndra/Logs/", exist_ok=True)
+
 
 # These variables are used for detecting if the player hasn't gone through a topic before
 # Not all used variables are listed here. Some variables are set elsewhere
 
-firsttimeIndra = True  # Used for the "Indra" topic
-firsttimeVideoGames = True  # Used for the "Video Games" topic
 
 # Logs the amount of topics or "Loops" the game has gone through. This increasing everytime the WhileReset file is run.
 
@@ -32,6 +23,7 @@ pet_type = None
 pet_type_amount = None
 nextyear = None
 interactions = 0
+instrument = None
 topicdone = False  # Detects if the Topic is finished
 topicopinion = True  # True = Good Topic and False = Bad Topic
 loveBonus = 0  # Bonus given when Indra is told I love you
@@ -46,7 +38,7 @@ ignoreinteract = False  # Some Topics don't need to be logged as interactions
 
 # These are paths used to make my job easier
 
-indrafolder = Path(HOME_PATH / "ProjectIndra")
+indrafolder = Path("ProjectIndra")
 logs = Path(indrafolder / "Logs")
 intlog = Path(indrafolder / "Logs/Int_log.txt")
 namelog = Path(indrafolder / "Logs/Name_log.txt") # NOTE: Unused
@@ -88,3 +80,17 @@ for line in cusswordsread:
     cusswords.append(line.rstrip('\n'))
 
 #################################################
+
+
+class Topic():
+    def __init__(self, firsttime = True):
+        self.firsttime = firsttime
+
+    def echo():
+        print (self.firsttime)
+
+
+Music = Topic()
+Indra = Topic()
+VideoGames = Topic()
+Gender = Topic()

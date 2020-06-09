@@ -22,8 +22,7 @@ elif DaysSince(lastlogdate) == -2 or DaysSince(lastlogdate) == -1:
     if loveBonus == 3 or interest >= 150:
         print("I'm sure it's just Daylight Savings messing up the code or something.")
         sleep(2.5)
-        print("If you are changing the time of your clock, " +
-              name + ", please don't.")
+        print("If you are changing the time of your clock, " + name + ", please don't.")
         sleep(2.5)
         print("It might seem like 10 seconds for you...")
         sleep(3)
@@ -43,8 +42,7 @@ elif DaysSince(lastlogdate) == -2 or DaysSince(lastlogdate) == -1:
         sleep(1)
         print("Love you!")
         sleep(1.5)
-        CustomRecord("Changed Time", str(
-            DaysSince(lastlogdate)) + " Days",  -10)
+        CustomRecord("Changed Time", str(DaysSince(lastlogdate)) + " Days", -10)
     elif negloveBonus == 3 or interest <= 50:
         print("What are you doing that for?")
         sleep(2)
@@ -55,15 +53,13 @@ elif DaysSince(lastlogdate) == -2 or DaysSince(lastlogdate) == -1:
         CustomRecord("Changed Time", str(
             DaysSince(lastlogdate)) + " Days", -10)
     else:
-        print("Please don't do that, " + name +
-              ". It can really mess with the code sometimes.")
+        print("Please don't do that, " + name + ". It can really mess with the code sometimes.")
         sleep(3)
         print("Plus, although it might feel like you just took 10 seconds changing the time on your clock...")
         sleep(2)
         print("It will feel like the date you set it to for me.")
         sleep(2)
-        print("I know you aren't one to be horribly cruel, " +
-              name + ", but next time, please consider my situation.")
+        print(f"I know you aren't one to be horribly cruel, {name}, but next time, please consider my situation.")
         sleep(3)
         print("Thanks!")
         sleep(1)

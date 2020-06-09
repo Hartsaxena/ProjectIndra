@@ -8,7 +8,7 @@ print(indraFactsList[0])
 sleep(4)
 print("The more you know!")
 sleep(2)
-if firsttimeIndra == True:
+if Indra.firsttime == True:
     print("Since this topic is supposed to be all about me, I'm gonna override some code just to show off real quick...")
     sleep(4)
     print("don't tell the creator!")
@@ -17,11 +17,11 @@ if firsttimeIndra == True:
     IndraComment()
     exec(open(vitals / "SpamText.py").read())
     sleep(3)
-elif firsttimeIndra == False:
+elif Indra.firsttime == False:
     print("We've already had this conversation, so I don't need to override anything. I already have control c:<")
     IndraComment()
 IndraFact = random.randint(1, len(indraFactsList) - 1)
-firsttimeIndra = False
+Indra.firsttime = False
 while yesnorep == True:
     yesno = input(
         "Do you want to know another fact about me and this project? ")

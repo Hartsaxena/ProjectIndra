@@ -2,7 +2,7 @@
 # This also makes my job easier
 
 
-vitals = Path(HOME_PATH / "ProjectIndra/Vitals")
+vitals = Path("ProjectIndra/Vitals")
 
 
 def restart():
@@ -78,7 +78,7 @@ def linesin(filepath):
 # Notification function that doesn't really have a use yet. It just looked cool. Might find a use for this later
 
 
-def notify(title = "Title", text = "Body text"):
+def notify(title="Title", text="Body text"):
     os.system("""
         osascript -e 'display notification "{}" with title "{}"'
         """.format(text, title))
@@ -88,7 +88,7 @@ def notify(title = "Title", text = "Body text"):
 
 def Yes(function):
     lowercase_function = function.lower()
-    if lowercase_function == 'yes' or lowercase_function == 'yep' or lowercase_function == 'yes please'or lowercase_function == 'definitely' or lowercase_function == 'y' or lowercase_function == 'of course' or lowercase_function == 'ok' or lowercase_function == 'k' or lowercase_function == 'yea' or lowercase_function == 'yeah' or lowercase_function == 'sure' or lowercase_function == 'certainly' or lowercase_function == 'with pleasure':
+    if lowercase_function == 'yes' or lowercase_function == 'yep' or lowercase_function == 'yes please' or lowercase_function == 'definitely' or lowercase_function == 'y' or lowercase_function == 'of course' or lowercase_function == 'ok' or lowercase_function == 'k' or lowercase_function == 'yea' or lowercase_function == 'yeah' or lowercase_function == 'sure' or lowercase_function == 'certainly' or lowercase_function == 'with pleasure':
         return True
     else:
         return False
@@ -124,8 +124,7 @@ def TopicAgreed():
     global interest
     interest = (interest + 5) + loveBonus - negloveBonus
     a = open(intlog, "a")
-    a.write("Agreed with subject: " + topic + " |  +5  |  " + str(loveBonus) + "  |    |  " +
-            str(negloveBonus) + "  |  " + str(interest - 5 - loveBonus + negloveBonus) + " --> " + str(interest) + "\n")
+    a.write("Agreed with subject: " + topic + " |  +5  |  " + str(loveBonus) + "  |    |  " + str(negloveBonus) + "  |  " + str(interest - 5 - loveBonus + negloveBonus) + " --> " + str(interest) + "\n")
     a.close()
 
 
@@ -133,8 +132,7 @@ def TopicDisagreed():
     global interest
     interest = (interest - 5) + loveBonus - negloveBonus
     a = open(intlog, 'a')
-    a.write("Disagreed with subject: " + topic + " |  -5  |  " + str(loveBonus) + "  |    |  " +
-            str(negloveBonus) + "  |  " + str(interest + 5 - loveBonus + negloveBonus) + " --> " + str(interest) + "\n")
+    a.write("Disagreed with subject: " + topic + " |  -5  |  " + str(loveBonus) + "  |    |  " + str(negloveBonus) + "  |  " + str(interest + 5 - loveBonus + negloveBonus) + " --> " + str(interest) + "\n")
     a.close()
 
 
@@ -143,8 +141,7 @@ def TopicDisagreed():
 
 def GenreDisagreed():
     a = open(intlog, 'a')
-    a.write("Disagreed with subject: " + genreinput + " |  -5  |  " + str(loveBonus) + "  |    |  " +
-            str(negloveBonus) + "  |  " + str(interest + 5 - loveBonus + negloveBonus) + " --> " + str(interest) + "\n")
+    a.write("Disagreed with subject: " + genreinput + " |  -5  |  " + str(loveBonus) + "  |    |  " + str(negloveBonus) + "  |  " + str(interest + 5 - loveBonus + negloveBonus) + " --> " + str(interest) + "\n")
     a.close()
 
 
@@ -152,8 +149,7 @@ def CustomRecord(message, var, change):
     global interest
     interest = interest + int(change)
     a = open(intlog, 'a+')
-    a.write(str(message) + ": " + str(var) + " |  " + str(change) + "  |  " + str(loveBonus) + "  |    |  " +
-            str(negloveBonus) + "  |  " + (str(interest + int(change - (2 * change)))) + " --> " + str(interest) + '\n')
+    a.write(str(message) + ": " + str(var) + " |  " + str(change) + "  |  " + str(loveBonus) + "  |    |  " + str(negloveBonus) + "  |  " + (str(interest + int(change - (2 * change)))) + " --> " + str(interest) + '\n')
     a.close()
 
 
@@ -164,8 +160,7 @@ def IndraAgreed():
     global interest
     interest = (interest + 10) + loveBonus - negloveBonus
     a = open(intlog, 'a')
-    a.write("Agreed With Subject: " + topic + " |  +10  |  " + str(loveBonus) + "  |    |  " +
-            str(negloveBonus) + "  |  " + str(interest - 10 - loveBonus + negloveBonus) + " --> " + str(interest) + "\n")
+    a.write("Agreed With Subject: " + topic + " |  +10  |  " + str(loveBonus) + "  |    |  " + str(negloveBonus) + "  |  " + str(interest - 10 - loveBonus + negloveBonus) + " --> " + str(interest) + "\n")
     a.close()
 
 
@@ -173,8 +168,7 @@ def IndraDisagreed():
     global interest
     interest = (interest - 20) + loveBonus - negloveBonus
     a = open(intlog, 'a')
-    a.write("Disagreed with subject: " + topic + " |  -10  |  " + str(loveBonus) + "  |    |  " +
-            str(negloveBonus) + "  |  " + str(interest + 10 - loveBonus + negloveBonus) + " --> " + str(interest) + "\n")
+    a.write("Disagreed with subject: " + topic + " |  -10  |  " + str(loveBonus) + "  |    |  " + str(negloveBonus) + "  |  " + str(interest + 10 - loveBonus + negloveBonus) + " --> " + str(interest) + "\n")
     a.close()
 
 
@@ -187,12 +181,10 @@ def LoveAgreed():
     global negloveBonus
     interest = (interest + 20) + loveBonus - negloveBonus
     l = open(indrafolder / "Love_You.txt", 'w')
-    l.write("I love you too, " + name +
-            ". I hope we can love eachother for the rest of eternity.  c;\n")
+    l.write("I love you too, " + name + ". I hope we can love eachother for the rest of eternity.  c;\n")
     l.close()
     a = open(intlog, "a")
-    a.write("Loved Indra  |  +20  | " + str(interest - 20) +
-            " --> " + str(interest) + "\n")
+    a.write("Loved Indra  |  +20  | " + str(interest - 20) + " --> " + str(interest) + "\n")
     a.close()
     loveBonus = 3
     negloveBonus = 0
@@ -206,12 +198,11 @@ def LoveDisagreed():
     difference = interest - (interest - 50)
     interest = 50
 
-    l = open(indrafolder / "Don't_Love_You.txt", 'w')
-    l.write("I can't believe you would have the nerve to say something like that!\n")
-    l.close()
+    file = open(indrafolder / "Don't_Love_You.txt", 'w')
+    file.write("I can't believe you would have the nerve to say something like that!\n")
+    file.close()
     a = open(intlog, "a")
-    a.write("Rejected by Indra  |  SET 50 (-" + str(difference) + ")  | " +
-            str(interest + difference) + " --> " + str(interest) + "\n")
+    a.write("Rejected by Indra  |  SET 50 (-" + str(difference) + ")  | " + str(interest + difference) + " --> " + str(interest) + "\n")
     a.close()
     negloveBonus = 3
     loveBonus = 0
@@ -220,12 +211,11 @@ def LoveDisagreed():
 def LoveShrugged():
     global interest
     interest = (interest + 5) + loveBonus - negloveBonus
-    l = open(indrafolder / "You're_ok.txt", 'w')
-    l.write("Sorry, " + name + ", but I really don't think we can get that far in our relationship. I think we should just stay as friends. You're a great person, but I don't think we know enough about eachother yet. Maybe after some time, we'll get to know each other more and I can make a decision.\n")
-    l.close()
+    file = open(indrafolder / "You're_ok.txt", 'w')
+    file.write("Sorry, " + name + ", but I really don't think we can get that far in our relationship. I think we should just stay as friends. You're a great person, but I don't think we know enough about eachother yet. Maybe after some time, we'll get to know each other more and I can make a decision.\n")
+    file.close()
     a = open(intlog, "a")
-    a.write("Friendzoned by Indra  |  +5  | " +
-            str(interest - 5 + loveBonus) + " --> " + str(interest) + "\n")
+    a.write("Friendzoned by Indra  |  +5  | " + str(interest - 5 + loveBonus) + " --> " + str(interest) + "\n")
     a.close()
 
 
@@ -234,8 +224,7 @@ def LoveShrugged():
 
 def OverRepeat():
     a = open(intlog, "a")
-    a.write("Repeating subject  |  -10  | " +
-            str(interest + 10) + " --> " + str(interest) + "\n")
+    a.write("Repeating subject  |  -10  | " + str(interest + 10) + " --> " + str(interest) + "\n")
     a.close()
 
 
@@ -244,22 +233,19 @@ def OverRepeat():
 
 def CalmRejection():
     a = open(intlog, 'a')
-    a.write("Calmly rejected: " + topic + " |  +1  |  " + str(loveBonus) + "  |    |  " +
-            str(negloveBonus) + "  |  " + str(interest - 1 - loveBonus + negloveBonus) + " --> " + str(interest) + "\n")
+    a.write("Calmly rejected: " + topic + " |  +1  |  " + str(loveBonus) + "  |    |  " + str(negloveBonus) + "  |  " + str(interest - 1 - loveBonus + negloveBonus) + " --> " + str(interest) + "\n")
     a.close()
 
 
 def MiddleRejection():
     a = open(intlog, 'a')
-    a.write("Raised Awkwardness: " + topic + " |  -1  |  " + str(loveBonus) + "  |    |  " +
-            str(negloveBonus) + "  |  " + str(interest + 1 - loveBonus + negloveBonus) + " --> " + str(interest) + "\n")
+    a.write("Raised Awkwardness: " + topic + " |  -1  |  " + str(loveBonus) + "  |    |  " + str(negloveBonus) + "  |  " + str(interest + 1 - loveBonus + negloveBonus) + " --> " + str(interest) + "\n")
     a.close()
 
 
 def GenreRejection():
     a = open(intlog, 'a')
-    a.write("Raised Awkwardness: " + genreinput + " |  -1  |  " + str(loveBonus) + "  |    |  " +
-            str(negloveBonus) + "  |  " + str(interest + 1 - loveBonus + negloveBonus) + " --> " + str(interest) + "\n")
+    a.write("Raised Awkwardness: " + genreinput + " |  -1  |  " + str(loveBonus) + "  |    |  " + str(negloveBonus) + "  |  " + str(interest + 1 - loveBonus + negloveBonus) + " --> " + str(interest) + "\n")
     a.close()
 
 
@@ -271,8 +257,7 @@ def HardRejection():
 
 def ChangeMind():
     a = open(intlog, "a")
-    a.write("Indra changes her mind: " + topic + " |  -5  |  " + str(loveBonus) + "  |    |  " +
-            str(negloveBonus) + "  |  " + str(interest + 5 - loveBonus + negloveBonus) + " --> " + str(interest) + "\n")
+    a.write(f"Indra changes her mind: {topic} |  -5  |  {loveBonus}  |    |  {negloveBonus}  |  " + str(interest + 5 - loveBonus + negloveBonus) + " --> " + str(interest) + "\n")
     a.close()
 
 
@@ -305,18 +290,18 @@ def IndraComment():
 # Terminate Program
 
 
-def AbruptTerminate(message = ""):
+def AbruptTerminate(message=""):
     sys.exit(message)
 
 
-def RecordedTerminate(message = ""):
+def RecordedTerminate(message=""):
     a = open(intlog, "a")
     a.write("User Terminated program\n")
     a.close()
     sys.exit(message)
 
 
-def IndraTerminate(message = ""):
+def IndraTerminate(message=""):
     a = open(intlog, "a")
     a.write("Indra Terminated program\n")
     a.close()
@@ -334,7 +319,7 @@ def RecordedRestart():
     os.execl(sys.executable, sys.executable, * sys.argv)
 
 
-def slowprint(message = '', interval = 0, lead = "", lead_interval = 0.5, lead_dots = False, newline = "\n"):
+def slowprint(message='', interval=0, lead="", lead_interval=0.5, lead_dots=False, newline=""):
     '''Prints a string slowly, letter by letter.'''
 
     for letter in message:
@@ -348,7 +333,7 @@ def slowprint(message = '', interval = 0, lead = "", lead_interval = 0.5, lead_d
             sys.stdout.flush()
         sleep(0.75)
     elif lead != "":
-        sleep(lead_interval/2)
+        sleep(lead_interval / 2)
         for letter in lead:
             sys.stdout.write(letter)
             sys.stdout.flush()
@@ -374,48 +359,7 @@ def GenderSet():
 # Recording through text files.
 # Moved to a sub-file to reduce clutter.
 
-exec(open(vitals / "FunctionsReset_Save_Load.py").read())
-
-# Older versions of the Save and Load function, if needed:
-#
-# def Save():
-#     s = open(saves / "save", 'w')
-#     try:
-#         s.write(str(name) + "\n" + str(interest) + "\n" + str(loveBonus) + "\n" + str(negloveBonus) +
-#                 "\n" + str(firsttimeIndra) + "\n" + str(devbypass) + "\n" + str(firsttimeVideoGames) + "\n" + str(lastlogdate[0]) + "\n" + str(lastlogdate[1]) + "\n" + str(lastlogdate[2]) + "\n")
-#     except NameError:
-#         exec(open(vitals / "NewGame.py").read())
-#     s.close()
-#
-# def Load():
-#     if os.path.exists(saves / "save") == False:
-#         Save()
-#     with open(saves / "save", 'r') as f:
-#         lines = [line.rstrip('\n') for line in f]
-#     global name
-#     global interest
-#     global loveBonus
-#     global negloveBonus
-#     global firsttimeIndra©
-#     global firsttimeVideoGames
-#     global devbypass
-#     global lastlogdate
-#     name = str(lines[0])
-#     interest = int(str(lines[1]))
-#     loveBonus = int(str(lines[2]))
-#     negloveBonus = int(str(lines[3]))
-#     firsttimeIndra = bool(lines[4] == 'True')
-#     devbypass = bool(lines[5] == 'True')
-#     firsttimeVideoGames = bool(lines[6] == 'True')
-#     lastlogdateyear = int(lines[7])
-#     lastlogdatemonth = int(lines[8])
-#     lastlogdateday = int(lines[9])
-#     lastlogdate = [lastlogdateyear, lastlogdatemonth, lastlogdateday]
-#     log = open(intlog, 'a')
-#     log.write("LOAD  |  " + str(currentdate) + "\n")
-#     log.close()
-#     f.close()
-#
+exec(open(vitals / "func/func_Save_Load.py").read())
 
 
 def execute(file_path):
@@ -428,5 +372,9 @@ def install(package):
     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
 
-def uninstall(package):
+def uninstall(package): # Unused
     subprocess.check_call([sys.executable, '-m', 'pip', 'uninstall', package])
+
+def output(command): # Returns the output of a shell command
+    result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True, shell=True)
+    return result.stdout

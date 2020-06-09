@@ -1,12 +1,14 @@
 # This detects if the current Operating system is macOS
 
 if platform.system() != "Darwin":
-    print ("Warning! It seems you aren't running this on a macOS system!")
+    print("Warning! It seems you aren't running this on a macOS system!")
     sleep(2)
-    print ("This program will most definitely fail if it is not run on a Mac.")
+    print("This program will most definitely fail if it is not run on a Mac.")
     sleep(2.5)
-    print ("I apologize for the inconvenience.")
-    AbruptRestart()
+    print("I apologize for the inconvenience.")
+    sleep(1.5)
+    print("The game will continue, but don't expect it to continue for long.")
+    sleep(3)
 
 # This detects if a previous save exists
 
@@ -18,7 +20,15 @@ if os.path.exists(indrafolder / "firstrun") == True:
     sleep(2)
     print("my name is Indra!")
     sleep(2)
-    name = input("what is your name? ")
+    while True:
+        name = input("what is your name? ")
+        if not name:
+            print ("Sorry, but it doesn't seem like you typed anything in.")
+            sleep(2)
+            print ("Please try again!")
+            sleep(1.5)
+        else:
+            break
     exec(open(vitals / "NameEggs.py").read())
     StartEdit()
     Save()
@@ -36,17 +46,18 @@ if firstrun == False:
         elif resetconfirm.lower() == 'no' or resetconfirm.lower() == 'not really' or resetconfirm.lower() == 'n':
             sys.exit("Sorry, but the game cannot run and has been Terminated.")
     except:
-        print ("Sorry, but something went wrong while loading the save data.")
+        print("Sorry, but something went wrong while loading the save data.")
         sleep(2)
         topicdone = False
         while topicdone == False:
             yesno = input("Would you like to reset the game? ")
             if Yes(yesno) == True:
                 topicdone = True
-                exec(open(sysexecutes/"ExecLogDel.py").read())
+                exec(open(sysexecutes / "ExecLogDel.py").read())
             elif No(yesno) == True:
                 topicdone = True
-                RecordedTerminate("Sorry, but the program cannot be processed and has been\nterminated automatically.")
+                RecordedTerminate(
+                    "Sorry, but the program cannot be processed and has been\nterminated automatically.")
             else:
                 topicdone = False
 

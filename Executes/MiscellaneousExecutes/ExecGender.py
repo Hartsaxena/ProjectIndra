@@ -27,17 +27,17 @@ while topicdone == False:
         elif genderinput.lower() == 'male' or gender.lower() == 'boy' or gender.lower() == 'man':
             print("Ok!")
             gender = "Male"
-            if firsttimegender == True:
+            if Gender.firsttime == True:
                 GenderSet()
-            if firsttimegender == False:
+            if Gender.firsttime == False:
                 GenderChange()
             topicdone = True
         elif genderinput.lower() == 'female' or genderinput.lower() == 'woman' or genderinput.lower() == 'girl':
             print("Ok!")
             gender = "Female"
-            if firsttimegender == True:
+            if Gender.firsttime == True:
                 GenderSet()
-            if firsttimegender == False:
+            if Gender.firsttime == False:
                 GenderChange()
             print("You know, most people expect me to a woman...")
             sleep(2)
