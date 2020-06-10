@@ -23,7 +23,6 @@ try:
     import json
     import PIL
     import platform
-    import playsound
     import pyautogui as pag
     import random
     import requests
@@ -50,7 +49,6 @@ except (ModuleNotFoundError, AssertionError):
         sleep(2)
 
         install('pillow')
-        install('playsound')
         install('pyautogui')
         install('pyobjc-core')
         install('pyobjc')
